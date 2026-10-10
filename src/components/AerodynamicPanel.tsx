@@ -88,13 +88,6 @@ export const AerodynamicPanel: React.FC<AerodynamicPanelProps> = ({
               <span className="text-xs font-mono font-bold tracking-wider text-cyan-300 uppercase">
                 MODULE B: AERODYNAMIC FLOW SYNTHESIS
               </span>
-              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
-                params.enabled && !params.muted
-                  ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40 font-semibold'
-                  : 'bg-zinc-800 text-zinc-500 border-zinc-700'
-              }`}>
-                {params.enabled && !params.muted ? 'ACTIVE · SYNTHESIZING' : 'BYPASSED'}
-              </span>
             </div>
             <p className="text-[11px] text-zinc-400 font-mono">
               Turbulent airflow, boundary buffeting, whistling edge tones & supersonic skin shear
@@ -111,7 +104,7 @@ export const AerodynamicPanel: React.FC<AerodynamicPanelProps> = ({
             className={`px-3 py-1 text-xs font-mono rounded border transition-colors cursor-pointer ${
               params.enabled
                 ? 'bg-cyan-400 text-black font-bold border-cyan-300 shadow-sm shadow-cyan-400/20'
-                : 'bg-zinc-900 text-zinc-400 border-zinc-700 hover:text-zinc-200'
+                : 'bg-cyan-950/25 text-cyan-400/80 border-cyan-500/30 hover:bg-cyan-950/45 hover:text-cyan-300 hover:border-cyan-500/50'
             }`}
           >
             {params.enabled ? 'ENABLED' : 'DISABLED'}
@@ -124,7 +117,7 @@ export const AerodynamicPanel: React.FC<AerodynamicPanelProps> = ({
             className={`p-1.5 rounded border transition-colors cursor-pointer ${
               params.muted
                 ? 'bg-rose-500/20 text-rose-400 border-rose-500/40'
-                : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-zinc-200'
+                : 'bg-cyan-950/20 text-cyan-400/60 border-cyan-500/25 hover:bg-cyan-950/35 hover:text-cyan-300 hover:border-cyan-500/40'
             }`}
             title="Mute Module"
           >
@@ -138,7 +131,7 @@ export const AerodynamicPanel: React.FC<AerodynamicPanelProps> = ({
             className={`px-2 py-1 text-xs font-mono rounded border transition-colors cursor-pointer ${
               params.solo
                 ? 'bg-cyan-300 text-black font-bold border-cyan-200 shadow-sm'
-                : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-zinc-200'
+                : 'bg-cyan-950/20 text-cyan-400/70 border-cyan-500/25 hover:bg-cyan-950/35 hover:text-cyan-300 hover:border-cyan-500/40'
             }`}
             title="Solo Module"
           >

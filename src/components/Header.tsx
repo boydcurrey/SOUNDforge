@@ -5,9 +5,10 @@ import { AudioEngineMetrics } from '../audio/types';
 
 interface HeaderProps {
   onOpenExportModal: () => void;
+  onEngage?: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenExportModal }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenExportModal, onEngage }) => {
   const [metrics, setMetrics] = useState<AudioEngineMetrics>({
     isRunning: false,
     sampleRate: 48000,
@@ -33,6 +34,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenExportModal }) => {
       audioEngine.stop();
     } else {
       await audioEngine.start();
+      if (onEngage) {
+        onEngage();
+      }
     }
   };
 
@@ -84,14 +88,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenExportModal }) => {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-base font-bold tracking-wider text-zinc-100 font-mono">
-                SOUNDFORGE
+                SOUNDforge
               </h1>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">
-                PoC v0.1
-              </span>
-              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-                Milestones 1 & 2: Propulsion + Aerodynamics
-              </span>
             </div>
             <p className="text-xs text-zinc-400 font-mono">
               Procedural Physical Acoustic Synthesis Laboratory
@@ -116,12 +114,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenExportModal }) => {
           <div className="flex items-center gap-1.5 bg-zinc-900/90 p-1 rounded-lg border border-zinc-800">
             <button
               onClick={handleTogglePlay}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-mono font-semibold transition-all shadow-sm ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all shadow-sm cursor-pointer ${
                 metrics.isRunning
-                  ? 'bg-amber-500 hover:bg-amber-600 text-black shadow-amber-500/20'
-                  : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/20'
+                  ? 'bg-amber-500 hover:bg-amber-400 text-black shadow-amber-500/20'
+                  : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-emerald-500/20 ring-2 ring-emerald-400/40 animate-pulse'
               }`}
-              title={metrics.isRunning ? 'Pause Audio Engine' : 'Start / Engage Audio Synthesis'}
+              title={metrics.isRunning ? 'Pause Audio Engine' : 'Engage Audio Synthesis (Initializes Web Audio API)'}
             >
               {metrics.isRunning ? (
                 <>
@@ -157,8 +155,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenExportModal }) => {
           <div className="flex items-center gap-2 bg-zinc-900/90 border border-zinc-800 rounded-lg px-2.5 py-1.5">
             <button
               onClick={handleToggleMute}
-              className={`p-1 rounded text-zinc-400 hover:text-zinc-100 transition-colors ${
-                isMuted ? 'text-rose-400 bg-rose-500/10' : ''
+              className={`p-1 rounded border transition-colors cursor-pointer ${
+                isMuted
+                  ? 'text-rose-400 bg-rose-500/20 border-rose-500/40'
+                  : 'text-amber-500/60 bg-amber-950/20 border-amber-500/25 hover:text-amber-300 hover:bg-amber-950/35'
               }`}
               title={isMuted ? 'Unmute Master' : 'Mute Master'}
             >

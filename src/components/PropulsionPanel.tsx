@@ -87,13 +87,6 @@ export const PropulsionPanel: React.FC<PropulsionPanelProps> = ({
               <span className="text-xs font-mono font-bold tracking-wider text-amber-300 uppercase">
                 MODULE A: PROPULSION SYNTHESIS
               </span>
-              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
-                params.enabled && !params.muted
-                  ? 'bg-amber-500/15 text-amber-300 border-amber-500/40 font-semibold'
-                  : 'bg-zinc-800 text-zinc-500 border-zinc-700'
-              }`}>
-                {params.enabled && !params.muted ? 'ACTIVE · SYNTHESIZING' : 'BYPASSED'}
-              </span>
             </div>
             <p className="text-[11px] text-zinc-400 font-mono">
               Continuous evolving rocket combustion engine & physical acoustic graph
@@ -110,7 +103,7 @@ export const PropulsionPanel: React.FC<PropulsionPanelProps> = ({
             className={`px-3 py-1 text-xs font-mono rounded border transition-colors cursor-pointer ${
               params.enabled
                 ? 'bg-amber-500 text-black font-bold border-amber-400 shadow-sm shadow-amber-500/20'
-                : 'bg-zinc-900 text-zinc-400 border-zinc-700 hover:text-zinc-200'
+                : 'bg-amber-950/25 text-amber-500/80 border-amber-500/30 hover:bg-amber-950/45 hover:text-amber-300 hover:border-amber-500/50'
             }`}
           >
             {params.enabled ? 'ENABLED' : 'DISABLED'}
@@ -123,7 +116,7 @@ export const PropulsionPanel: React.FC<PropulsionPanelProps> = ({
             className={`p-1.5 rounded border transition-colors cursor-pointer ${
               params.muted
                 ? 'bg-rose-500/20 text-rose-400 border-rose-500/40'
-                : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-zinc-200'
+                : 'bg-amber-950/20 text-amber-500/60 border-amber-500/25 hover:bg-amber-950/35 hover:text-amber-300 hover:border-amber-500/40'
             }`}
             title="Mute Module"
           >
@@ -137,7 +130,7 @@ export const PropulsionPanel: React.FC<PropulsionPanelProps> = ({
             className={`px-2 py-1 text-xs font-mono rounded border transition-colors cursor-pointer ${
               params.solo
                 ? 'bg-amber-400 text-black font-bold border-amber-300 shadow-sm'
-                : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:text-zinc-200'
+                : 'bg-amber-950/20 text-amber-500/70 border-amber-500/25 hover:bg-amber-950/35 hover:text-amber-300 hover:border-amber-500/40'
             }`}
             title="Solo Module"
           >

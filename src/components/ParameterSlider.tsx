@@ -78,7 +78,9 @@ export const ParameterSlider: React.FC<ParameterSliderProps> = ({
             <button
               type="button"
               onClick={onInfoClick}
-              className="p-0.5 text-zinc-500 hover:text-amber-400 focus:outline-none transition-colors shrink-0"
+              className={`p-0.5 text-zinc-500 focus:outline-none transition-colors shrink-0 cursor-pointer ${
+                colorScheme === 'cyan' ? 'hover:text-cyan-400' : 'hover:text-amber-400'
+              }`}
               title={`View technical specifications for ${label}`}
             >
               <Info className="w-3.5 h-3.5" />

@@ -63,6 +63,10 @@ export const SubModuleContainer: React.FC<SubModuleContainerProps> = ({
     ? 'bg-amber-500 text-black border-amber-400 font-bold'
     : 'bg-cyan-400 text-black border-cyan-300 font-bold';
 
+  const switchInactiveClasses = isAmber
+    ? 'bg-amber-950/25 text-amber-500/80 border-amber-500/30 hover:bg-amber-950/45 hover:text-amber-300 hover:border-amber-500/50'
+    : 'bg-cyan-950/25 text-cyan-400/80 border-cyan-500/30 hover:bg-cyan-950/45 hover:text-cyan-300 hover:border-cyan-500/50';
+
   return (
     <div className={`rounded-xl border transition-all duration-200 overflow-hidden ${containerClasses}`}>
       {/* Header bar - double tap / double click to expand/collapse */}
@@ -110,10 +114,10 @@ export const SubModuleContainer: React.FC<SubModuleContainerProps> = ({
           <button
             type="button"
             onClick={() => onToggleEnabled(!enabled)}
-            className={`px-2 py-0.5 text-[10px] font-mono rounded flex items-center gap-1 border transition-colors ${
+            className={`px-2 py-0.5 text-[10px] font-mono rounded flex items-center gap-1 border transition-colors cursor-pointer ${
               enabled
                 ? switchActiveClasses
-                : 'bg-zinc-800 text-zinc-500 border-zinc-700 hover:text-zinc-300'
+                : switchInactiveClasses
             }`}
             title={enabled ? 'Disable this acoustic source' : 'Enable this acoustic source'}
           >

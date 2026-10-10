@@ -209,18 +209,6 @@ export const AudioVisualizer: React.FC = () => {
           height={180}
           className="w-full h-full block"
         />
-
-        {/* Legend overlays */}
-        <div className="absolute top-1.5 left-3 flex items-center gap-4 text-[9px] font-mono pointer-events-none">
-          <div className="flex items-center gap-1">
-            <span className="w-2 h-0.5 bg-amber-400 inline-block"></span>
-            <span className="text-zinc-400">Propulsion & Engine FFT (20Hz - 20kHz)</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <span className="w-2 h-0.5 bg-cyan-400 inline-block"></span>
-            <span className="text-zinc-400">Aerodynamic Flow Pressure</span>
-          </div>
-        </div>
       </div>
     </div>
   );
