@@ -1,0 +1,6 @@
+{
+  "name": "SOUNDforge - Procedural Sound Laboratory",
+  "description": "Standalone procedural audio synthesis engine proof-of-concept investigating physical and mechanical acoustic synthesis, starting with rocket propulsion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
